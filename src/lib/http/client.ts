@@ -1,4 +1,5 @@
 import axios from "axios";
+import { HttpRequest, HttpResponse, RequestOptions } from "./types";
 
 export function createHttpClient(
   baseURL: string,
@@ -25,7 +26,12 @@ export function createHttpClient(
 
       const httpResponse: HttpResponse<T> = {
         path: url,
-        headers: response.headers,
+        headers: Object.fromEntries(
+          Object.entries(response.headers).map(([key, value]) => [
+            key,
+            String(value)
+          ])
+        ),
         body: response.data,
         type: response.headers["content-type"]
       };
@@ -45,28 +51,6 @@ export function createHttpClient(
   return {
     get<T>(url: string, config?: RequestOptions): Promise<HttpResponse<T>> {
       return request<T>("get", url, undefined, config);
-    },
-    post<T, D>(
-      url: string,
-      data?: D,
-      config?: RequestOptions
-    ): Promise<HttpResponse<T>> {
-      return request<T>("post", url, data, config);
-    },
-    patch<T, D>(
-      url: string,
-      data?: D,
-      config?: RequestOptions
-    ): Promise<HttpResponse<T>> {
-      return request<T>("post", url, JSON.stringify(data), config);
-    },
-
-    put<T, D>(
-      url: string,
-      data?: D,
-      config?: RequestOptions
-    ): Promise<HttpResponse<T>> {
-      return request<T>("put", url, data, config);
     }
   };
 }

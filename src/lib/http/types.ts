@@ -2,21 +2,6 @@ import { AxiosRequestConfig } from "axios";
 
 export interface HttpRequest {
   get<T>(url: string, config?: RequestOptions): Promise<HttpResponse<T>>;
-  post<T, D>(
-    url: string,
-    data?: D,
-    config?: RequestOptions
-  ): Promise<HttpResponse<T>>;
-  patch<T, D>(
-    url: string,
-    data?: D,
-    config?: RequestOptions
-  ): Promise<HttpResponse<T>>;
-  put<T, D>(
-    url: string,
-    data?: D,
-    config?: RequestOptions
-  ): Promise<HttpResponse<T>>;
 }
 
 export interface HttpResponse<T> {
@@ -37,8 +22,4 @@ export enum ResponseType {
   Document = "document",
   Text = "text",
   Stream = "stream"
-}
-
-export interface Error {
-  message: string;
 }
