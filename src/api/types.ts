@@ -13,3 +13,9 @@ type Transaction = {
 export type TransactionsResponse = {
   transactions: Transaction[];
 };
+
+export type EurRatesResponse = {
+  BTC: number;
+  CHF: number;
+  USD: number;
+};

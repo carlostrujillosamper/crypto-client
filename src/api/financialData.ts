@@ -1,5 +1,5 @@
 import { createHttpClient } from "../lib/http/client";
-import { TransactionsResponse } from "./types";
+import { EurRatesResponse, TransactionsResponse } from "./types";
 
 const httpClient = createHttpClient("http://localhost:8080/api");
 
@@ -16,10 +16,10 @@ export const getTransactions = async (): Promise<TransactionsResponse> => {
   }
 };
 
-export const getEurRates = async () => {
+export const getEurRates = async (): Promise<EurRatesResponse> => {
   try {
     const response = await httpClient.get("/eur-rates");
-    return response.body;
+    return response.body as EurRatesResponse;
   } catch (error) {
     if (error instanceof Error) {
       console.error(`Failed to get rates: ${error.message}`);
