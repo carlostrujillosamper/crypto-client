@@ -1,27 +1,56 @@
-# React + TypeScript + Vite
+#Crypto Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## How to run the project?
+-|- Prerequisites: node.js & npm.
+-|- Run `npm install` to install all dependencies (tested with npm v8.18.0)
+-|- Run `npm run dev` to start the server (tested with node.js v18.8.0)
 
-Currently, two official plugins are available:
+## Libraries Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Here are the libraries used in this project:
 
-## Expanding the ESLint configuration
+-|- React: A JavaScript library for building user interfaces.
+-|- Axios: A promise-based HTTP client for the browser and Node.js.
+-|- ESLint: A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript.
+-|- Prettier: An opinionated code formatter that enforces a consistent code style.
+-|- UUID: A library for generating unique identifiers.
+-|- Vite: A fast build tool for modern web applications.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+These libraries were chosen for their reliability, popularity, and compatibility with the project requirements.
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Future Improvements
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Here are some potential future improvements for this project:
+
+-|- Add testing.
+-|- Enhance error handling and logging.
+-|- Implement caching to improve performance.
+-|- Enhance error handling and logging.
+-|- Add React Query for efficient data fetching and caching.
+
+
+## Handling Null Rates
+
+To improve the handling of handle null rates in the project, we can follow these steps:
+
+-|- Step 1: Save the rates on a caching system together with a timestamp.
+-|- Step 2: If the rate returns null search for it on cache.
+-|- Step 3: Use the rate found on cache for all computations but display that it is not current adding a last updated and the timestamp.
+
+By implementing these steps, we can ensure that the project gracefully handles null rates and provides a better user experience.
+
+## State Management
+
+Since the app is simple, there is currently no need for state management. However, we should plan to start handling  by adding the React Context API in the near future.
+
+## Routing
+
+Currently, there is no routing implemented in the project. However, it is recommended to add routing in the future to enable navigation between different pages or views. This can be achieved using libraries like React Router or Next.js.
+
+
+
+
+
+
+
