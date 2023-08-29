@@ -28,6 +28,7 @@ Here are some potential future improvements for this project:
 - Implement caching to improve performance.
 - Enhance error handling and logging.
 - Add React Query for efficient data fetching and caching.
+- Add loading component
 
 
 ## Handling Null Rates
