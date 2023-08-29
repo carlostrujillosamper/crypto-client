@@ -1,7 +1,8 @@
 import { SummaryTable } from "./SummaryTable/SummaryTable";
 import { TransactionTable } from "./TransactionTable/TransactionTable";
-import { transactionTableContainer } from "./styles";
 import { useFinancialDashboard } from "./useFinancialDashboard";
+import { error as errorStyle } from "../themes/Table/styles";
+import { transactionTableContainer } from "./styles";
 
 export const FinancialDashboard = () => {
   const { transactions, eurRates, error } = useFinancialDashboard();
@@ -21,6 +22,13 @@ export const FinancialDashboard = () => {
       </div>
       <h2>Summary</h2>
       <SummaryTable transactions={transactions.transactions} rates={eurRates} />
+
+      <div style={errorStyle}>
+        <p>
+          ** Not Available : the Eur Equivalence rate for this currency is not
+          available at this time please try again later
+        </p>
+      </div>
     </>
   );
 };

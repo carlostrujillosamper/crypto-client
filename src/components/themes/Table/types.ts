@@ -12,3 +12,7 @@ export type TableProps = {
     id: string;
   }[];
 };
+
+export enum CellErrorValues {
+  notAvailable = "Not Available"
+}

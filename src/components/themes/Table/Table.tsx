@@ -1,6 +1,8 @@
-import { ReactNode } from "react";
 import { TableProps } from "./types";
-import { cellStyles, tableStyles } from "./styles";
+import { isValueError } from "../../../utils/isValueError";
+import { ErrorCell } from "./ErroCell";
+import { Cell } from "./Cell";
+import { tableStyles } from "./styles";
 
 export const Table = ({ headers, tableData }: TableProps) => {
   return (
@@ -26,11 +28,10 @@ export const Table = ({ headers, tableData }: TableProps) => {
               if (key === "id") {
                 return null;
               }
-              return (
-                <td key={key} style={cellStyles}>
-                  {value as ReactNode}
-                </td>
-              );
+              if (isValueError(value)) {
+                return <ErrorCell cellValue={value} key={key} />;
+              }
+              return <Cell cellValue={value} key={key} />;
             })}
           </tr>
         ))}

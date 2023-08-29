@@ -4,3 +4,11 @@ export const tableStyles = {
 };
 
 export const cellStyles = { border: "1px solid black", padding: "10px" };
+
+export const errorCellStyles = {
+  border: "1px solid black",
+  padding: "10px",
+  color: "red"
+};
+
+export const error = { color: "red" };
