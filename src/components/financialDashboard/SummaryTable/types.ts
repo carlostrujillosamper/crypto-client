@@ -5,6 +5,6 @@ export type CurrencyAccumulator = {
     totalPendingWithdrawals: number;
     totalPendingDeposits: number;
     totalBalance: number;
-    totalBalanceEurEquiv: number | "Not available";
+    totalBalanceEurEquiv: number | null;
   };
 };

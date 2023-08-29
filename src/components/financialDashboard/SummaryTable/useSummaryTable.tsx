@@ -43,8 +43,9 @@ export const useSummaryTable = ({
         acc[currency].totalCompletedDeposits -
         acc[currency].totalCompletedWithdrawals;
 
-      acc[currency].totalBalanceEurEquiv =
-        acc[currency].totalBalance * rateData[currency];
+      acc[currency].totalBalanceEurEquiv = rateData[currency]
+        ? acc[currency].totalBalance * rateData[currency]
+        : null;
 
       return acc;
     }, {} as CurrencyAccumulator);

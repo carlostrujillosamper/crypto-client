@@ -20,7 +20,9 @@ export const transactionsTemplate: TableTemplate = {
   },
   eurEquivalent: {
     accessor: "eurEquivalent",
-    getValue: (value: number | string) => parseEurEquivalence(value)
+    getValue: (value: number | string) => {
+      return parseEurEquivalence(value);
+    }
   },
   type: {
     accessor: "type",

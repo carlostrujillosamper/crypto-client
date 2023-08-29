@@ -10,7 +10,7 @@ export const useTransactionTable = ({
   const mapTransactionsToRates = () => {
     return transactions.map((transaction) => {
       const rate = rates[transaction.currency];
-      const eurEquivalent = transaction.amount * rate;
+      const eurEquivalent = rate ? transaction.amount * rate : null;
       return {
         ...transaction,
         eurEquivalent
@@ -20,9 +20,9 @@ export const useTransactionTable = ({
 
   const mappedTransactions = mapTransactionsToRates();
 
-  const transactionTableData: TransactionTableData[] = generateTableData(
+  const transactionTableData = generateTableData(
     mappedTransactions,
     transactionsTemplate
   );
-  return transactionTableData;
+  return transactionTableData as TransactionTableData[];
 };

@@ -1,5 +1,5 @@
 import { parseNumberToTwoFixed } from "./parseNumberToTwoFixed";
 
 export const parseEurEquivalence = (value: string | number) => {
-  return value ? parseNumberToTwoFixed(value) : "Not Available";
+  return value || value === 0 ? parseNumberToTwoFixed(value) : "Not Available";
 };
