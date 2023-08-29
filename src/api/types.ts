@@ -15,7 +15,5 @@ export type TransactionsResponse = {
 };
 
 export type EurRatesResponse = {
-  BTC: number;
-  CHF: number;
-  USD: number;
+  [currency: string]: number;
 };

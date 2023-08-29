@@ -1,8 +1,8 @@
 import "./App.css";
-import { Table } from "./components/Table";
+import { FinancialDashboard } from "./components/financialDashboard/FinancialDashboard";
 
 function App() {
-  return <Table />;
+  return <FinancialDashboard />;
 }
 
 export default App;
