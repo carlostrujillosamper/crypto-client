@@ -32,9 +32,7 @@ export const summaryTemplate: TableTemplate = {
   },
   totalBalanceEurEquiv: {
     accessor: "totalBalanceEurEquiv",
-    getValue: (value: number | string) => {
-      console.log(value);
-      return value ? parseNumberToTwoFixed(value) : "Not Available";
-    }
+    getValue: (value: number | string) =>
+      value ? parseNumberToTwoFixed(value) : "Not Available"
   }
 };
