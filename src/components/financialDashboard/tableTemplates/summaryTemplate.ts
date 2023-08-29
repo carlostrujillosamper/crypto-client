@@ -1,3 +1,4 @@
+import { parseEurEquivalence } from "../../../utils/parseEurEquivalence";
 import { parseNumberToTwoFixed } from "../../../utils/parseNumberToTwoFixed";
 import { TableTemplate } from "../../themes/Table/types";
 
@@ -32,7 +33,6 @@ export const summaryTemplate: TableTemplate = {
   },
   totalBalanceEurEquiv: {
     accessor: "totalBalanceEurEquiv",
-    getValue: (value: number | string) =>
-      value ? parseNumberToTwoFixed(value) : "Not Available"
+    getValue: (value: number | string) => parseEurEquivalence(value)
   }
 };

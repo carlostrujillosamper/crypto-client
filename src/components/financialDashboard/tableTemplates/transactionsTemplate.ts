@@ -1,3 +1,4 @@
+import { parseEurEquivalence } from "../../../utils/parseEurEquivalence";
 import { parseNumberToTwoFixed } from "../../../utils/parseNumberToTwoFixed";
 import { TableTemplate } from "../../themes/Table/types";
 
@@ -19,8 +20,7 @@ export const transactionsTemplate: TableTemplate = {
   },
   eurEquivalent: {
     accessor: "eurEquivalent",
-    getValue: (value: number | string) =>
-      value ? parseNumberToTwoFixed(value) : "not available"
+    getValue: (value: number | string) => parseEurEquivalence(value)
   },
   type: {
     accessor: "type",
