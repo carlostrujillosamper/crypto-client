@@ -1,5 +1,6 @@
 import { SummaryTable } from "./SummaryTable/SummaryTable";
 import { TransactionTable } from "./TransactionTable/TransactionTable";
+import { transactionTableContainer } from "./styles";
 import { useFinancialDashboard } from "./useFinancialDashboard";
 
 export const FinancialDashboard = () => {
@@ -10,10 +11,15 @@ export const FinancialDashboard = () => {
 
   return (
     <>
-      <TransactionTable
-        transactions={transactions.transactions}
-        rates={eurRates}
-      />
+      <h1>Financial Dashboard</h1>
+      <h2>Transactions</h2>
+      <div style={transactionTableContainer}>
+        <TransactionTable
+          transactions={transactions.transactions}
+          rates={eurRates}
+        />
+      </div>
+      <h2>Summary</h2>
       <SummaryTable transactions={transactions.transactions} rates={eurRates} />
     </>
   );
