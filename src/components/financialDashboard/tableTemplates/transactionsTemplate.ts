@@ -1,3 +1,4 @@
+import { parseNumberToTwoFixed } from "../../../utils/parseNumberToTwoFixed";
 import { TableTemplate } from "../../themes/Table/types";
 
 export const transactionsTemplate: TableTemplate = {
@@ -10,16 +11,16 @@ export const transactionsTemplate: TableTemplate = {
   },
   currency: {
     accessor: "currency",
-    getValue: (value: string | number) => value
+    getValue: (value: number | string) => value
   },
   amount: {
     accessor: "amount",
-    getValue: (value: number | string) => parseFloat(Number(value).toFixed(2))
+    getValue: (value: number | string) => parseNumberToTwoFixed(value)
   },
   eurEquivalent: {
     accessor: "eurEquivalent",
     getValue: (value: number | string) =>
-      value ? parseFloat(Number(value).toFixed(2)) : "not available"
+      value ? parseNumberToTwoFixed(value) : "not available"
   },
   type: {
     accessor: "type",

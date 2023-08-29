@@ -1,4 +1,6 @@
 import { TransactionsResponse, EurRatesResponse } from "../../../api/types";
+import { generateTableData } from "../../../utils/generateTableData";
+import { summaryTemplate } from "../tableTemplates/summaryTemplate";
 import { FinancialTableProps } from "../types";
 import { CurrencyAccumulator } from "./types";
 
@@ -41,15 +43,14 @@ export const useSummaryTable = ({
         acc[currency].totalCompletedDeposits -
         acc[currency].totalCompletedWithdrawals;
 
-      acc[currency].totalBalanceEurEquiv = rateData[currency]
-        ? acc[currency].totalBalance * rateData[currency]
-        : "Not available";
+      acc[currency].totalBalanceEurEquiv =
+        acc[currency].totalBalance * rateData[currency];
 
       return acc;
     }, {} as CurrencyAccumulator);
   };
   const groupedTransactions = groupTransactionsByCurrency(transactions, rates);
-  const summaryTableData = Object.entries(groupedTransactions).map(
+  const parsedGroupedTransactions = Object.entries(groupedTransactions).map(
     ([currency, data]) => {
       return {
         currency,
@@ -57,6 +58,10 @@ export const useSummaryTable = ({
         ...data
       };
     }
+  );
+  const summaryTableData = generateTableData(
+    parsedGroupedTransactions,
+    summaryTemplate
   );
   return summaryTableData;
 };
